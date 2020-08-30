@@ -92,4 +92,3 @@ class AlbumsViewController: UIViewController, UITableViewDataSource, UITableView
         navigationController?.pushViewController(albumDetailsVC, animated: true)
     }
 }
-

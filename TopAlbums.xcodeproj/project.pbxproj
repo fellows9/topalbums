@@ -67,17 +67,17 @@
 			isa = PBXGroup;
 			children = (
 				A9B2449D24FAFF2A00B68025 /* AppDelegate.swift */,
-				A9B2449F24FAFF2A00B68025 /* SceneDelegate.swift */,
-				A9B244A124FAFF2A00B68025 /* AlbumsViewController.swift */,
+				A9B244B724FB0CAE00B68025 /* Album.swift */,
 				A9B244BB24FB2C6500B68025 /* AlbumDetailsViewController.swift */,
 				A9B244B124FB01C900B68025 /* AlbumTableViewCell.swift */,
+				A9B244A124FAFF2A00B68025 /* AlbumsViewController.swift */,
 				A9B244B324FB0AB200B68025 /* AlbumsViewModel.swift */,
+				A9B2449F24FAFF2A00B68025 /* SceneDelegate.swift */,
 				A9B244B924FB1FB400B68025 /* UIImageView+Additions.swift */,
 				A9B244B524FB0AC200B68025 /* WebService.swift */,
-				A9B244B724FB0CAE00B68025 /* Album.swift */,
 				A9B244A624FAFF2C00B68025 /* Assets.xcassets */,
-				A9B244A824FAFF2C00B68025 /* LaunchScreen.storyboard */,
 				A9B244AB24FAFF2C00B68025 /* Info.plist */,
+				A9B244A824FAFF2C00B68025 /* LaunchScreen.storyboard */,
 			);
 			path = TopAlbums;
 			sourceTree = "<group>";

@@ -21,7 +21,7 @@ class AlbumTableViewCell: UITableViewCell {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 18)
-        label.textColor = UIColor(displayP3Red: 0, green: 158/255, blue: 188/255, alpha: 1)
+        label.textColor = .aqua
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping

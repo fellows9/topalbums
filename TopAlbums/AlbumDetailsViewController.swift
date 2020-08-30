@@ -33,7 +33,7 @@ class AlbumDetailsViewController: UIViewController {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 30)
-        label.textColor = UIColor(displayP3Red: 0, green: 158/255, blue: 188/255, alpha: 1)
+        label.textColor = .aqua
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
@@ -54,7 +54,7 @@ class AlbumDetailsViewController: UIViewController {
 
     let button: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor(displayP3Red: 0, green: 158/255, blue: 188/255, alpha: 1)
+        button.backgroundColor = .aqua
         button.setTitleColor(.white, for: .normal)
         button.setTitle("View Album in Apple Music", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
@@ -80,9 +80,9 @@ class AlbumDetailsViewController: UIViewController {
     override func loadView() {
         super.loadView()
 
-        navigationController?.navigationBar.tintColor = UIColor(displayP3Red: 0, green: 158/255, blue: 188/255, alpha: 1)
+        navigationController?.navigationBar.tintColor = .aqua
         setupView()
-        configure()
+        configureAlbumInfo()
     }
     
     private func setupView() {
@@ -128,7 +128,7 @@ class AlbumDetailsViewController: UIViewController {
         button.heightAnchor.constraint(equalToConstant: 44).isActive = true
     }
     
-    private func configure() {
+    private func configureAlbumInfo() {
         guard let album = album else { return }
         albumIconImageView.loadThumbnail(with: album.artworkUrl100)
         additionalInfoLabel.text = album.otherInfo
@@ -142,5 +142,10 @@ class AlbumDetailsViewController: UIViewController {
         }
     }
 
+}
 
+extension UIColor {
+    static var aqua: UIColor {
+           return UIColor(displayP3Red: 0, green: 158/255, blue: 188/255, alpha: 1)
+    }
 }
