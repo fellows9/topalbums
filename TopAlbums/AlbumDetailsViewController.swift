@@ -52,14 +52,14 @@ class AlbumDetailsViewController: UIViewController {
         return label
     }()
 
-    let button: UIButton = {
+    let viewAlbumButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .aqua
         button.setTitleColor(.white, for: .normal)
-        button.setTitle("View Album in Apple Music", for: .normal)
+        button.setTitle("View album in Apple Music", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button.layer.cornerRadius = 5
-        button.addTarget(self, action: #selector(buttonTapped),for: .touchUpInside)
+        button.addTarget(self, action: #selector(viewAlbumButtonTapped),for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -93,7 +93,7 @@ class AlbumDetailsViewController: UIViewController {
         containerView.addSubview(titleLabel)
         containerView.addSubview(artistLabel)
         view.addSubview(containerView)
-        view.addSubview(button)
+        view.addSubview(viewAlbumButton)
 
         albumIconImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         albumIconImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
@@ -121,11 +121,11 @@ class AlbumDetailsViewController: UIViewController {
         artistLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
         artistLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
 
-        button.topAnchor.constraint(equalTo: spaceView.bottomAnchor).isActive = true
-        button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
-        button.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        viewAlbumButton.topAnchor.constraint(equalTo: spaceView.bottomAnchor).isActive = true
+        viewAlbumButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        viewAlbumButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        viewAlbumButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
+        viewAlbumButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
     }
     
     private func configureAlbumInfo() {
@@ -136,16 +136,10 @@ class AlbumDetailsViewController: UIViewController {
         artistLabel.text = album.artistName
     }
     
-    @objc func buttonTapped() {
+    @objc func viewAlbumButtonTapped() {
         if let url = album?.url, UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
 
-}
-
-extension UIColor {
-    static var aqua: UIColor {
-           return UIColor(displayP3Red: 0, green: 158/255, blue: 188/255, alpha: 1)
-    }
 }

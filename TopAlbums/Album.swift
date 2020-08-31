@@ -16,10 +16,19 @@ struct Album: Codable {
     var genres: [Genre]?
     var releaseDate: String?
     var copyright: String?
-    
-    private var genreNames: String? {
-        guard let genres = genres else { return nil }
-        return (genres.compactMap{ $0.name }).joined(separator: ", ")
+
+    var otherInfo: String {
+        var info: String = ""
+        if let date = displayDate {
+            info += "Release Date: \(date)\n"
+        }
+        if let genreList = genreNames {
+            info += "Genres: \(genreList)\n"
+        }
+        if let copyrightInfo = copyright {
+            info += "\(copyrightInfo)"
+        }
+        return info
     }
     
     private var displayDate: String? {
@@ -33,18 +42,11 @@ struct Album: Codable {
         return formatter.string(from: date)
     }
 
-    var otherInfo: String {
-        var info: String = ""
-        if let date = displayDate {
-            info += "Release Date: \(date)\n"
-        }
-        if let genreList = genreNames {
-            info += "Genres: \(genreList)\n"
-        }
-        if let copyrightInfo = copyright {
-            info += "Copyright Info: \(copyrightInfo)"
-        }
-        return info
+    private var genreNames: String? {
+        guard let genres = genres else { return nil }
+        var genresNamesSet = Set(genres.compactMap { $0.name })
+        genresNamesSet.remove("Music")
+        return genresNamesSet.joined(separator: ", ")
     }
 }
 

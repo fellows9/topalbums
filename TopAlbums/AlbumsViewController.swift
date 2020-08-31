@@ -21,7 +21,7 @@ class AlbumsViewController: UIViewController, UITableViewDataSource, UITableView
         view.backgroundColor = .white
         navigationItem.title = "Top 100 Albums"
         setupTableView()
-        showActivityIndicator()
+        showActivityIndicatorHidingTableView()
         viewModel.loadDataSource { [weak self] (result) in
             self?.activityView?.stopAnimating()
             switch result {
@@ -40,6 +40,7 @@ class AlbumsViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(AlbumTableViewCell.self, forCellReuseIdentifier: "AlbumTableViewCell")
+
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.topAnchor.constraint(equalTo:view.safeAreaLayoutGuide.topAnchor).isActive = true
@@ -48,7 +49,7 @@ class AlbumsViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.bottomAnchor.constraint(equalTo:view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
 
-    private func showActivityIndicator() {
+    private func showActivityIndicatorHidingTableView() {
         let overView = UIView(frame: view.frame)
         overView.backgroundColor = .white
         overlayView = overView
