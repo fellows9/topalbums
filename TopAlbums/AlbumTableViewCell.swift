@@ -59,6 +59,12 @@ class AlbumTableViewCell: UITableViewCell {
         setupView()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        albumIconImageView.image = nil
+    }
+    
     private func setupView() {
         selectionStyle = .none
 

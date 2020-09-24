@@ -11,7 +11,7 @@ import UIKit
 class AlbumsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     let tableView: UITableView = .init()
-    let viewModel: AlbumsViewModel = .init()
+    let viewModel: AlbumsViewModel = .init(with: WebService())
     var overlayView: UIView?
     var activityView: UIActivityIndicatorView?
     

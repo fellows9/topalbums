@@ -8,8 +8,12 @@
 
 import Foundation
 
-class AlbumsViewModel {
-    let webService: WebService = .init()
+class AlbumsViewModel {    
+    init(with webService: WebServiceProtocol) {
+        self.webService = webService
+    }
+    
+    var webService: WebServiceProtocol
     var dataSource: [Album] = .init()
     
     func loadDataSource(completion: @escaping (Result<Bool>) -> Void) {
