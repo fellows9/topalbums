@@ -12,8 +12,8 @@ class AlbumDetailsViewController: UIViewController {
 
     var album: Album?
 
-    let albumIconImageView: UIImageView = {
-        let img = UIImageView()
+    let albumIconImageView: DownloadableImageView = {
+        let img = DownloadableImageView()
         img.contentMode = .scaleAspectFill
         img.translatesAutoresizingMaskIntoConstraints = false
         img.clipsToBounds = true

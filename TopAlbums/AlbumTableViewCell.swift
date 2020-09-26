@@ -10,8 +10,8 @@ import UIKit
 
 class AlbumTableViewCell: UITableViewCell {
 
-    let albumIconImageView: UIImageView = {
-        let img = UIImageView()
+    let albumIconImageView: DownloadableImageView = {
+        let img = DownloadableImageView()
         img.contentMode = .scaleAspectFill
         img.translatesAutoresizingMaskIntoConstraints = false
         img.clipsToBounds = true
@@ -62,6 +62,7 @@ class AlbumTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
+        albumIconImageView.cancelLoadThumbnail()
         albumIconImageView.image = nil
     }
     

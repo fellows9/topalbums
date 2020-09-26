@@ -58,21 +58,6 @@ class WebService: WebServiceProtocol {
         }
     }
 
-    public static func downloadImage(url: URL, completion: @escaping (Result<Data>) -> Void) {
-        DispatchQueue.global(qos: .userInitiated).async {
-            let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-                DispatchQueue.main.async() {
-                    guard error == nil, let data = data else {
-                        completion(.failure(error))
-                        return
-                    }
-                    completion(.success(data))
-                }
-            }
-            task.resume()
-        }
-    }
-
 }
 
 class MockWebService: WebServiceProtocol {
